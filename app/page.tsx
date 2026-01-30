@@ -196,6 +196,31 @@ export default function HomePage() {
     };
   }, []);
 
+  useEffect(() => {
+    const header = document.querySelector<HTMLElement>(".overlay-header");
+    if (!header) return;
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    const update = () => {
+      const currentY = window.scrollY;
+      const shouldHide = currentY > lastY && currentY > 80;
+      header.style.transform = shouldHide ? "translate(-50%, -120%)" : "translate(-50%, 0)";
+      lastY = currentY;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
