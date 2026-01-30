@@ -60,7 +60,7 @@ const copy = {
       notes: "Goals, pages, references, features to include..."
     },
     budgetOptions: ["Under $1,500", "$1,500 – $3,000", "$3,000 – $6,000", "Above $6,000"],
-    projectOptions: ["Marketing site", "Ecommerce", "Web app", "Landing page sprint"],
+    projectOptions: ["Marketing site", "Ecommerce", "Web app", "Landing page sprint", "Other"],
     submit: "Send quote request",
     submitting: "Sending...",
     statusSuccess: "Sent. I will reply with a scoped price and a free mock link.",
@@ -137,7 +137,7 @@ const copy = {
       notes: "Objectifs, pages, références, fonctionnalités à inclure..."
     },
     budgetOptions: ["Moins de 1 500 $", "1 500 $ – 3 000 $", "3 000 $ – 6 000 $", "Plus de 6 000 $"],
-    projectOptions: ["Site marketing", "Commerce en ligne", "Application web", "Sprint page d'atterrissage"],
+    projectOptions: ["Site marketing", "Commerce en ligne", "Application web", "Sprint page d'atterrissage", "Autre"],
     submit: "Envoyer la demande",
     submitting: "Envoi...",
     statusSuccess: "Envoyé. Je répondrai avec un prix détaillé et le lien de maquette gratuite.",
@@ -205,37 +205,36 @@ export default function HomePage() {
         <div
           className="scroll-image top"
           aria-hidden="true"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1527437934671-61474b530017?auto=format&fit=crop&w=2000&q=80')" }}
-        >
-          <header className="overlay-header">
-            <div className="logo-banner">
-              <img src="/logo.png" alt="Spaxio logo" />
-            </div>
-            <div className="nav">
-              <a href="#hero">{t.nav.hero}</a>
-              <a href="#process">{t.nav.process}</a>
-              <a href="#mock">{t.nav.mock}</a>
-              <a href="#quote">{t.nav.quote}</a>
-              <a href="#agent">{t.nav.agent}</a>
-              <button
-                className="button secondary"
-                style={{ padding: "10px 14px", borderRadius: 10 }}
-                onClick={() => setLang("en")}
-                aria-label="Switch to English"
-              >
-                EN
-              </button>
-              <button
-                className="button secondary"
-                style={{ padding: "10px 14px", borderRadius: 10 }}
-                onClick={() => setLang("fr")}
-                aria-label="Passer au français"
-              >
-                FR
-              </button>
-            </div>
-          </header>
-        </div>
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=2000&q=80')" }}
+        />
+        <header className="overlay-header">
+          <div className="logo-banner">
+            <img src="/logo.png" alt="Spaxio logo" />
+          </div>
+          <div className="nav">
+            <a href="#hero">{t.nav.hero}</a>
+            <a href="#process">{t.nav.process}</a>
+            <a href="#mock">{t.nav.mock}</a>
+            <a href="#quote">{t.nav.quote}</a>
+            <a href="#agent">{t.nav.agent}</a>
+            <button
+              className="button secondary"
+              style={{ padding: "10px 14px", borderRadius: 10 }}
+              onClick={() => setLang("en")}
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <button
+              className="button secondary"
+              style={{ padding: "10px 14px", borderRadius: 10 }}
+              onClick={() => setLang("fr")}
+              aria-label="Passer au français"
+            >
+              FR
+            </button>
+          </div>
+        </header>
       </section>
 
       <section className="hero" id="hero">
@@ -261,7 +260,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="scroll-image" aria-hidden="true" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80')" }} />
+      <section
+        className="scroll-image"
+        aria-hidden="true"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80')" }}
+      />
 
       <section id="mock">
         <h2>{t.mockTitle}</h2>
