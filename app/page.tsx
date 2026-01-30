@@ -200,11 +200,11 @@ export default function HomePage() {
   }
 
   return (
-    <main>
+    <main className="page">
       <header>
         <div className="brand">
-          <img src="/codex-logo.svg" alt="Codex logo" />
-          <span>Codex + NanoAI Web Development</span>
+          <img src="/logo.png" alt="NanoAI Web Development logo" />
+          <span>NanoAI Web Development · Codex</span>
         </div>
         <div className="nav">
           <a href="#hero">{t.nav.hero}</a>
