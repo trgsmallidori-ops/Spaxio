@@ -1,0 +1,26 @@
+{
+  "name": "nanoai-webdev",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^16.1.6",
+    "nodemailer": "^7.0.13",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.5",
+    "@types/nodemailer": "^7.0.9",
+    "@types/react": "18.2.46",
+    "@types/react-dom": "18.2.18",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.6",
+    "typescript": "5.3.3"
+  }
+}
