@@ -205,7 +205,7 @@ export default function HomePage() {
         <div
           className="scroll-image top"
           aria-hidden="true"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=2000&q=80')" }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2400&q=80')" }}
         />
         <header className="overlay-header">
           <div className="logo-banner">
@@ -271,7 +271,11 @@ export default function HomePage() {
         <p className="lead">{t.mockLead}</p>
       </section>
 
-      <section className="scroll-image" aria-hidden="true" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2000&q=80')" }} />
+      <section
+        className="scroll-image"
+        aria-hidden="true"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=2000&q=80')" }}
+      />
 
       <section id="process">
         <h2>{t.processTitle}</h2>

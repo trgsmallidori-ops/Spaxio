@@ -47,8 +47,8 @@ main.page {
 }
 
 .top-visual .scroll-image.top {
-  height: 62vh;
-  min-height: 420px;
+  height: 70vh;
+  min-height: 480px;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -66,7 +66,7 @@ main.page {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 12px 16px;
+  padding: 12px 12px;
   pointer-events: none;
   width: min(1320px, 100%);
 }
@@ -334,11 +334,11 @@ footer {
 
 @media (max-width: 640px) {
   body {
-    padding: 32px 18px 64px;
+    padding: 0 0 64px;
   }
 
   .hero {
-    padding: 32px;
+    padding: 24px 18px;
   }
 
   .tagline {
@@ -348,12 +348,12 @@ footer {
 
 @media (max-width: 900px) {
   .top-visual {
-    margin: 0 -18px;
+    margin: 0;
   }
 
   .top-visual .scroll-image.top {
-    height: 46vh;
-    min-height: 300px;
+    height: 64vh;
+    min-height: 380px;
     background-attachment: scroll;
     background-position: center top;
   }
@@ -376,7 +376,7 @@ footer {
 
 @media (max-width: 520px) {
   .top-visual .scroll-image.top {
-    height: 40vh;
-    min-height: 240px;
+    height: 60vh;
+    min-height: 340px;
   }
 }
