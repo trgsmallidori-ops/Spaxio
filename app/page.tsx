@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 type Lang = "en" | "fr";
 
@@ -177,6 +177,25 @@ export default function HomePage() {
 
   const t = useMemo(() => copy[lang], [lang]);
 
+  useEffect(() => {
+    const items = Array.from(document.querySelectorAll<HTMLElement>(".scroll-image"));
+    const onScroll = () => {
+      const vh = window.innerHeight || 1;
+      items.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const offset = rect.top - vh * 0.5;
+        el.style.setProperty("--parallax-offset", `${offset * -0.12}px`);
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
@@ -263,7 +282,7 @@ export default function HomePage() {
       <section
         className="scroll-image"
         aria-hidden="true"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80')" }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80')" }}
       />
 
       <section id="mock">

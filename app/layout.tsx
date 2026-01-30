@@ -8,7 +8,7 @@ const sans = Space_Grotesk({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   title: "Spaxio — Luxe-grade web builds at honest prices",
   description: "Spaxio crafts luxury-inspired websites at a fraction of typical agency cost. Get a quote in minutes and receive a free mock site.",
-  icons: { icon: "/logo.png", shortcut: "/logo.png", apple: "/logo.png" }
+  icons: { icon: "/favicon.png", shortcut: "/favicon.png", apple: "/favicon.png" }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
