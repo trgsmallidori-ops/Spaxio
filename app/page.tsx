@@ -204,6 +204,7 @@ export default function HomePage() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const t = useMemo(() => copy[lang], [lang]);
 
@@ -291,17 +292,31 @@ export default function HomePage() {
           <div className="logo-banner">
             <img src="/logo.png" alt="Spaxio logo" />
           </div>
-          <div className="nav" aria-label="Primary">
-            <a href="#hero">{t.nav.hero}</a>
-            <a href="#process">{t.nav.process}</a>
-            <a href="#mock">{t.nav.mock}</a>
-            <a href="#quote">{t.nav.quote}</a>
-            <a href="#agent">{t.nav.agent}</a>
-            <a href="/faq">{t.nav.faq}</a>
+          <button
+            className="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+          <div className={`nav ${menuOpen ? "open" : ""}`} aria-label="Primary">
+            <a href="#hero" onClick={() => setMenuOpen(false)}>{t.nav.hero}</a>
+            <a href="#process" onClick={() => setMenuOpen(false)}>{t.nav.process}</a>
+            <a href="#mock" onClick={() => setMenuOpen(false)}>{t.nav.mock}</a>
+            <a href="#quote" onClick={() => setMenuOpen(false)}>{t.nav.quote}</a>
+            <a href="#agent" onClick={() => setMenuOpen(false)}>{t.nav.agent}</a>
+            <a href="/faq" onClick={() => setMenuOpen(false)}>{t.nav.faq}</a>
+            <a href="/blog" onClick={() => setMenuOpen(false)}>Blog</a>
             <button
               className="button secondary"
               style={{ padding: "10px 14px", borderRadius: 10 }}
-              onClick={() => setLang("en")}
+              onClick={() => {
+                setLang("en");
+                setMenuOpen(false);
+              }}
               aria-label="Switch to English"
             >
               EN
@@ -309,7 +324,10 @@ export default function HomePage() {
             <button
               className="button secondary"
               style={{ padding: "10px 14px", borderRadius: 10 }}
-              onClick={() => setLang("fr")}
+              onClick={() => {
+                setLang("fr");
+                setMenuOpen(false);
+              }}
               aria-label="Passer au français"
             >
               FR
