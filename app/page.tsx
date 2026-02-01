@@ -333,7 +333,7 @@ export default function HomePage() {
             <a href="#hero" onClick={() => setMenuOpen(false)}>{t.nav.hero}</a>
             <a href="#process" onClick={() => setMenuOpen(false)}>{t.nav.process}</a>
             <a href="#mock" onClick={() => setMenuOpen(false)}>{t.nav.mock}</a>
-            <a href="#quote" onClick={() => setMenuOpen(false)}>{t.nav.quote}</a>
+            <a href="#quote" className="nav-cta" onClick={() => setMenuOpen(false)}>{t.nav.quote}</a>
             <a href="#agent" onClick={() => setMenuOpen(false)}>{t.nav.agent}</a>
             <a href="/faq" onClick={() => setMenuOpen(false)}>{t.nav.faq}</a>
             <a href="/blog" onClick={() => setMenuOpen(false)}>Blog</a>

@@ -153,6 +153,24 @@ main.page {
   transform: translateY(-1px);
 }
 
+.overlay-header .nav a.nav-cta {
+  background: var(--accent);
+  color: #f7f7f7;
+  border-color: transparent;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.overlay-header .nav a.nav-cta:hover {
+  border-color: transparent;
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+:root[data-theme="dark"] .overlay-header .nav a.nav-cta {
+  color: #0b0b0b;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
 .overlay-header .nav a,
 .overlay-header .nav button {
   pointer-events: auto;
