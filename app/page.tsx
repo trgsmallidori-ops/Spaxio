@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useTheme } from "./useTheme";
 
 type Lang = "en" | "fr";
@@ -10,7 +10,7 @@ const copy = {
     badge: "Boutique quality · Accessible pricing",
     headline: "Tailored websites with the precision of a luxury atelier — at budget-friendly rates.",
     heroLead:
-      "I craft sites with the obsessive detail of high horology and lean, efficient workflows. Expect elegant visuals inspired by Audemars Piguet and conversion-focused UX — priced to win without cutting corners.",
+      "I craft sites with the obsessive detail of high horology and lean, efficient workflows. Expect elegant visuals and conversion-focused UX — priced to win without cutting corners.",
     ctaQuote: "Get a quote",
     ctaMock: "Request a free mock",
     ribbon: "Free mock website within 48 hours. Only pay when you love it.",
@@ -89,7 +89,7 @@ const copy = {
     badge: "Qualité boutique · Prix accessibles",
     headline: "Sites sur mesure avec la précision d'un atelier de luxe — à des tarifs abordables.",
     heroLead:
-      "Je conçois des sites avec le souci du détail horloger et des processus efficaces. Attendez-vous à des visuels élégants inspirés d’Audemars Piguet et une UX orientée conversion — sans sacrifier le budget.",
+      "Je conçois des sites avec le souci du détail horloger et des processus efficaces. Attendez-vous à des visuels élégants et une UX orientée conversion — sans sacrifier le budget.",
     ctaQuote: "Obtenir une soumission",
     ctaMock: "Demander une maquette gratuite",
     ribbon: "Maquette gratuite en 48 heures. Vous ne payez que si vous l’adoptez.",
@@ -208,14 +208,16 @@ export default function HomePage() {
   const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerHidden, setHeaderHidden] = useState(false);
   const { isDark, toggleTheme } = useTheme();
   const logoSrc = isDark ? "/darkmodelogo.png" : "/logo.png";
   const heroVideos = [
     "/2887463-hd_1920_1080_25fps.mp4",
-    "/5495898-hd_1920_1080_30fps.mp4",
+    "/IMG_4685.mov",
     "/5495845-hd_1920_1080_30fps.mp4"
   ];
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
+  const heroVideoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const t = useMemo(() => copy[lang], [lang]);
 
@@ -248,6 +250,7 @@ export default function HomePage() {
       const currentY = window.scrollY;
       const shouldHide = currentY > lastY && currentY > 80;
       header.style.transform = shouldHide ? "translate(-50%, -120%)" : "translate(-50%, 0)";
+      setHeaderHidden(shouldHide);
       lastY = currentY;
       ticking = false;
     };
@@ -290,9 +293,23 @@ export default function HomePage() {
     if (prefersReduced) return;
     const id = window.setInterval(() => {
       setHeroVideoIndex((prev) => (prev + 1) % heroVideos.length);
-    }, 6000);
+    }, 5000);
     return () => window.clearInterval(id);
   }, [heroVideos.length]);
+
+  useEffect(() => {
+    const activeVideo = heroVideoRefs.current[heroVideoIndex];
+    if (!activeVideo) return;
+    try {
+      activeVideo.currentTime = 0;
+      const playPromise = activeVideo.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => null);
+      }
+    } catch {
+      // Ignore playback reset errors.
+    }
+  }, [heroVideoIndex]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -334,6 +351,9 @@ export default function HomePage() {
               loop
               playsInline
               preload="metadata"
+              ref={(el) => {
+                heroVideoRefs.current[idx] = el;
+              }}
             />
           ))}
         </div>
@@ -567,6 +587,12 @@ export default function HomePage() {
           <a href="mailto:info@spaxio.ca">info@spaxio.ca</a>
         </div>
       </footer>
+      <a
+        className={`button floating-quote ${headerHidden ? "hidden" : ""}`}
+        href="#quote"
+      >
+        {lang === "en" ? "Get Quote" : "Obtenir une soumission"}
+      </a>
     </main>
   );
 }
