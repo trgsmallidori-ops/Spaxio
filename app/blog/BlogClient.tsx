@@ -97,13 +97,7 @@ export default function BlogClient() {
               </a>
             </div>
           </div>
-          <div className="cards">
-            {t.body.slice(0, 2).map((paragraph) => (
-              <div className="card" key={paragraph.slice(0, 24)}>
-                <p>{paragraph}</p>
-              </div>
-            ))}
-          </div>
+          <div className="cards" />
         </div>
       </section>
 
