@@ -72,17 +72,8 @@ const copy = {
       process: "Process",
       mock: "Free mock",
       quote: "Quote",
-      agent: "Coding agent",
       faq: "FAQ"
     },
-    agentTitle: "Coding agent: Codex",
-    agentLead:
-      "I use Codex as my primary coding agent to accelerate build quality and consistency. It keeps the stack clean, typed, and ready for Vercel.",
-    agentList: [
-      "Typesafe Next.js routes and API handlers wired to SMTP.",
-      "Automated code reviews to keep performance and accessibility in check.",
-      "Fast iteration on UI polish while preserving your brand voice."
-    ],
     contactLabel: "Contact"
   },
   fr: {
@@ -151,17 +142,8 @@ const copy = {
       process: "Méthode",
       mock: "Maquette",
       quote: "Soumission",
-      agent: "Agent de code",
       faq: "FAQ"
     },
-    agentTitle: "Agent de code : Codex",
-    agentLead:
-      "J'utilise Codex comme agent principal pour garantir rapidité, qualité et cohérence. Le code reste clair, typé et prêt pour Vercel.",
-    agentList: [
-      "Routes Next.js typées et API SMTP prêtes à l’emploi.",
-      "Relectures automatiques pour la performance et l’accessibilité.",
-      "Itérations rapides sur l’UI tout en respectant votre ton de marque."
-    ],
     contactLabel: "Contact"
   }
 } satisfies Record<Lang, any>;
@@ -376,7 +358,6 @@ export default function HomePage() {
             <a href="#process" onClick={() => setMenuOpen(false)}>{t.nav.process}</a>
             <a href="#mock" onClick={() => setMenuOpen(false)}>{t.nav.mock}</a>
             <a href="#quote" className="nav-cta" onClick={() => setMenuOpen(false)}>{t.nav.quote}</a>
-            <a href="#agent" onClick={() => setMenuOpen(false)}>{t.nav.agent}</a>
             <a href="/faq" onClick={() => setMenuOpen(false)}>{t.nav.faq}</a>
             <a href="/blog" onClick={() => setMenuOpen(false)}>Blog</a>
             <button
@@ -559,22 +540,6 @@ export default function HomePage() {
               {status && <span className="status">{status}</span>}
             </div>
           </form>
-        </div>
-      </section>
-
-      <section id="agent">
-        <h2 className="reveal">{t.agentTitle}</h2>
-        <p className="lead reveal" style={{ transitionDelay: "90ms" }}>{t.agentLead}</p>
-        <div className="cards">
-          {t.agentList.map((item: string, idx: number) => (
-            <div
-              className="card reveal"
-              style={{ transitionDelay: `${idx * 80}ms` }}
-              key={item}
-            >
-              <p>{item}</p>
-            </div>
-          ))}
         </div>
       </section>
 
