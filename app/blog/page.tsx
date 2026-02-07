@@ -4,7 +4,7 @@ import BlogClient from "./BlogClient";
 export const metadata: Metadata = {
   title: "How Spaxio Started",
   description:
-    "Stefano Polidori shares how Spaxio began in Montreal in January 2026 and how AI-accelerated building shaped the company."
+    "Stefano Polidori shares how Spaxio began in Montreal in January 2026 and what drives the company today."
 };
 
 const blogSchema = {
@@ -27,7 +27,7 @@ const blogSchema = {
   mainEntityOfPage: "https://spaxio.ca/blog",
   image: "https://spaxio.ca/logo.png",
   description:
-    "Founder story from Montreal: how Spaxio started in January 2026 and grew through AI-accelerated web builds."
+    "Founder story from Montreal: how Spaxio started in January 2026 and what the company stands for today."
 };
 
 export default function BlogPage() {

@@ -20,7 +20,7 @@ export default function BlogClient() {
         body: [
           "Je suis Stefano Polidori, basé à Montréal, QC. J’ai créé Spaxio en janvier 2026 après une expérience concrète dans un emploi à temps partiel qui m’a montré ce que les clients attendent vraiment : de la rapidité, de la clarté et un site qui paraît premium sans exploser le budget.",
           "Cet emploi m’a appris le rythme — les délais rapides, les attentes, et l’importance des petits détails. Je voulais offrir ce même niveau de finition à des marques plus petites qui n’y ont pas toujours accès.",
-          "Ensuite, je suis devenu très à l’aise pour coder avec l’IA. Pas juste l’utiliser, mais la diriger, corriger, et transformer des idées en sites propres et prêts pour la production. C’est l’ADN de Spaxio aujourd’hui : des builds rapides, des repères visuels premium, et des prix honnêtes.",
+          "Ensuite, j’ai affiné mon processus — des builds efficaces, le souci du détail, et la capacité à transformer des idées en sites propres et prêts pour la production. C’est l’ADN de Spaxio aujourd’hui : des builds rapides, des repères visuels premium, et des prix honnêtes.",
           "Si vous êtes une entreprise qui veut un site haut de gamme sans dépasser son budget, j’aimerais collaborer avec vous."
         ],
         ctaPrimary: "Construisons votre site",
@@ -36,7 +36,7 @@ export default function BlogClient() {
       body: [
         "I’m Stefano Polidori, based in Montreal, QC. I started Spaxio in January 2026 after getting real-world experience at a part-time job that showed me what clients actually want: speed, clarity, and a site that looks premium without feeling overpriced.",
         "That job taught me the flow — the quick turnarounds, the expectations, and how much small details matter. I wanted to bring that same level of polish to smaller brands that usually can’t afford it.",
-        "Then I got really good at coding with AI. Not just using it, but knowing how to steer it, fix it, and turn ideas into clean, production-ready sites fast. That’s what Spaxio is today: fast builds, premium design cues, and honest pricing.",
+        "Over time, I honed my workflow — efficient builds, attention to detail, and turning ideas into clean, production-ready sites fast. That’s what Spaxio is today: fast builds, premium design cues, and honest pricing.",
         "If you’re a business owner who wants a site that feels high-end but still fits your budget, I’d love to work with you."
       ],
       ctaPrimary: "Let’s build your site",
@@ -113,6 +113,7 @@ export default function BlogClient() {
 
       <footer>
         <p style={{ marginTop: "8px", color: "var(--muted)" }}>{t.footer}</p>
+        <p style={{ marginTop: "8px", color: "var(--muted)", fontSize: "0.9em" }}>© 2026 Spaxio</p>
       </footer>
     </>
   );

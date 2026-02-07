@@ -148,6 +148,10 @@ export default function FaqClient({ faqs }: { faqs: FaqItem[] }) {
           ))}
         </div>
       </section>
+
+      <footer>
+        <p style={{ marginTop: "8px", color: "var(--muted)", fontSize: "0.9em" }}>© 2026 Spaxio</p>
+      </footer>
     </>
   );
 }
